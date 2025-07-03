@@ -4,11 +4,17 @@ from kafka import KafkaProducer
 import time
 
 # Connect to Kafka running in Docker
-producer = KafkaProducer(bootstrap_servers='localhost:29092',  value_serializer=lambda v: json.dumps(v).encode('utf-8'))
+try:
+    producer = KafkaProducer(
+    bootstrap_servers='localhost:29092',
+    value_serializer=lambda v: json.dumps(v).encode('utf-8')
+    )
+    print("kafka connected")
+except Exception as e:
+    print("Failed to connect to Kafka:", e)
+    exit(1)
 
 faker = Faker()
-
-topic = 'test-topic'
 
 def generate_user():
     return {
@@ -20,9 +26,7 @@ def generate_user():
 
 print("Producing messages...\n")
 while True:
-    
     message = generate_user()
-    producer.send(topic, message)
+    producer.send("test-topic", message)
     print(f"✅ Sent: {message}")
     time.sleep(2)
-
