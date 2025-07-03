@@ -1,0 +1,63 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg
+*.egg-info/
+*.pyo
+*.pyd
+*.pdb
+.Python
+env/
+venv/
+ENV/
+.venv/
+
+# Jupyter & IDE
+.ipynb_checkpoints/
+.vscode/
+.idea/
+
+# Logs and DBs
+*.log
+*.sqlite3
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Environment files
+.env
+.env.*
+
+# Dagster local data
+dagster_home/
+.dagster/
+dagster.yaml
+dagster_instance/
+
+# Docker
+*.tar
+*.bak
+.dockerignore
+docker-compose.override.yml
+
+# Pip / Build
+dist/
+build/
+*.whl
+*.lock
+
+# Unit Test
+coverage.xml
+htmlcov/
+.tox/
+.pytest_cache/
+.nox/
+tests/__pycache__/
+
+# Misc
+*.parquet
+.parquet/
+data/
+
+minio_data/
